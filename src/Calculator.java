@@ -133,20 +133,20 @@ public class Calculator
         switch(tokens.length)
         {
         case 0:
-        	throw new CalculatorException("Illegal Token Length, type 0");
+        	throw new CalculatorException("Illegal Token Length");
         case 1:
         	if (tokens[0].equalsIgnoreCase("Quit")) {
         		return Integer.MIN_VALUE;
         	}
         	else {
-        		throw new CalculatorException("Illegal command, type 1");
+        		throw new CalculatorException("Illegal command");
         	}
         case 2:
         	return calculateTwoTokens(tokens);
         case 3:
         	return calculateThreeTokens(tokens);
         default:
-        	throw new CalculatorException("Illegal Token Length, type 0");
+        	throw new CalculatorException("Illegal Token Length");
         }
     }
 
@@ -189,12 +189,12 @@ public class Calculator
 	    		return "quit";
 	    	}
 		    return ("The result is: " + returned);
-		} catch (NumberFormatException e) {
-			return ("Input number cannot be parsed to an int. Please try again.");
-		} catch (CalculatorException e) {
-			return (e.getMessage());
 		} catch (ArithmeticException e) {
 			return ("Attempted to divide by 0. Please try again.");
+		} catch (CalculatorException e) {
+			return ("Calculator Exception, message is: " + e.getMessage());
+		} catch (NumberFormatException e) {
+			return ("Input number cannot be parsed to an int. Please try again.");
 		}
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
