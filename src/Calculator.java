@@ -182,14 +182,19 @@ public class Calculator
     public static String parseAndExecute(String input)
     {
     	String[] tokens = input.split(" ");
-    	try {
-			execute(tokens);
+		int returned;
+		try {
+			returned = execute(tokens);
+		    if (returned == Integer.MIN_VALUE) {
+	    		return "quit";
+	    	}
+		    return ("The result is: " + returned);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return ("Input number cannot be parsed to an int. Please try again.");
 		} catch (CalculatorException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return (e.getMessage());
+		} catch (ArithmeticException e) {
+			return ("Attempted to divide by 0. Please try again.");
 		}
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
