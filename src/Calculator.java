@@ -80,7 +80,23 @@ public class Calculator
     protected static int calculateThreeTokens(String[] tokens)
             throws ArithmeticException, NumberFormatException, CalculatorException
     {
-        // TODO: complete this...
+    	int num1 = Integer.parseInt(tokens[0]);
+    	int num2 = Integer.parseInt(tokens[2]);
+    	String operand = tokens[1];
+    	int result = 0;
+    	if(operand.equals("+")) {
+    		result = num1 + num2;
+    	}
+    	else if(operand.equals("-")) {
+    		result = num1 - num2;
+    	}
+    	else if(operand.equals("/")) {
+    		result = num1 / num2;
+    	}
+    	else {
+    		throw new CalculatorException("Illegal Command");
+    	}
+    	return result;
     }
 
     /**
@@ -123,10 +139,15 @@ public class Calculator
         		return Integer.MIN_VALUE;
         	}
         	else {
-        		throw new CalculatorException("Illegal command, type 1")
+        		throw new CalculatorException("Illegal command, type 1");
         	}
+        case 2:
+        	return calculateTwoTokens(tokens);
+        case 3:
+        	return calculateThreeTokens(tokens);
+        default:
+        	throw new CalculatorException("Illegal Token Length, type 0");
         }
-
     }
 
     /**
