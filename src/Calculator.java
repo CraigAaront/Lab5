@@ -34,8 +34,19 @@ public class Calculator
      */
     protected static int calculateTwoTokens(String[] tokens) throws NumberFormatException, CalculatorException
     {
-        int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
-        // TODO: complete this...
+    	int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
+    	String command = tokens[0];
+        int result = 0;
+        if(command.equalsIgnoreCase("halve")) {
+        	result = a / 2;
+        }
+        else if(command.equalsIgnoreCase("negate")) {
+        	result = -1 * a;
+        }
+        else {
+        	throw new CalculatorException("Illegal command");
+        }
+        return result;
     }
 
     /**
@@ -105,7 +116,15 @@ public class Calculator
         // Condition on the number of tokens (number of strings in user input separated by spaces)
         switch(tokens.length)
         {
-            // TODO: complete this...
+        case 0:
+        	throw new CalculatorException("Illegal Token Length, type 0");
+        case 1:
+        	if (tokens[0].equalsIgnoreCase("Quit")) {
+        		return Integer.MIN_VALUE;
+        	}
+        	else {
+        		throw new CalculatorException("Illegal command, type 1")
+        	}
         }
 
     }
@@ -141,6 +160,16 @@ public class Calculator
      */
     public static String parseAndExecute(String input)
     {
+    	String[] tokens = input.split(" ");
+    	try {
+			execute(tokens);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CalculatorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
         // method will catch those exceptions and respond accordingly.
