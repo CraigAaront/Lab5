@@ -33,7 +33,6 @@ public class Driver {
             System.out.println("Enter a command: negate, halve, +, -, /, quit...");
             // Read the next line of input
             String input = br.readLine();
-
             // Parse, compute and report the result
             String result = Calculator.parseAndExecute(input);
             if(result.equalsIgnoreCase("quit"))
