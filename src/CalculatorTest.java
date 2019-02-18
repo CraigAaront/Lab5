@@ -27,7 +27,15 @@ public class CalculatorTest {
      */
     public void calculateTwoTokensTestValidHalve() throws AssertException
     {
-        // TODO: complete this test...
+        try
+        {
+            int result = Calculator.calculateTwoTokens(new String[] {"halve", "5"});
+            Assert.assertEquals(2, result);
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+        }    
     }
 
     /**
@@ -56,7 +64,19 @@ public class CalculatorTest {
      */
     public void calculateTwoTokensTestInvalidCommand() throws AssertException
     {
-        // TODO: complete this test...
+        try
+        {
+            Calculator.calculateTwoTokens(new String[] {"halv", "4"});
+            Assert.fail("Illegal expression did not throw an Exception");
+        }
+        catch (CalculatorException e)
+        {
+        	//Comment for comments sake
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Unexpected Exception (not NumberFormatException) caught");
+        }        
     }
 
     /**
@@ -64,7 +84,15 @@ public class CalculatorTest {
      */
     public void calculateThreeTokensTestValidAdd() throws AssertException
     {
-        // TODO: complete this test...
+        try
+        {
+            int result = Calculator.calculateThreeTokens(new String[] {"5", "+", "5"});
+            Assert.assertEquals(10, result);
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -72,7 +100,15 @@ public class CalculatorTest {
      */
     public void calculateThreeTokensTestValidSubtract() throws AssertException
     {
-        // TODO: complete this test...
+        try
+        {
+            int result = Calculator.calculateThreeTokens(new String[] {"5", "-", "2"});
+            Assert.assertEquals(3, result);
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+        }
     }
 
     /**

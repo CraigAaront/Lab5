@@ -196,8 +196,5 @@ public class Calculator
 		} catch (NumberFormatException e) {
 			return ("Input number cannot be parsed to an int. Please try again.");
 		}
-        // TODO: complete this...
-        // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
-        // method will catch those exceptions and respond accordingly.
     }
 }
