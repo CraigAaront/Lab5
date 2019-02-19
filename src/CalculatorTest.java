@@ -282,7 +282,19 @@ public class CalculatorTest {
      */
     public void parseAndExecuteTestDivideByZero() throws AssertException
     {
-        // TODO: complete this test...
+        try
+        {
+            Calculator.calculateThreeTokens(new String[] {"5", "foo", "5"});
+            Assert.fail("Illegal expression did not throw an Exception");
+        }
+        catch (ArithmeticException e)
+        {
+            // Success; Assert.fail will not be thrown and the code will complete the test, thus succeeding.
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Unexpected Exception (not ArithmeticException caught");
+        } 
     }
 
     /**
