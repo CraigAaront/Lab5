@@ -315,7 +315,7 @@ public class CalculatorTest {
     {
         try
         {
-            Calculator.calculateThreeTokens(new String[] {"5", "foo", "5"});
+            Calculator.calculateThreeTokens(new String[] {"5", "/", "0"});
             Assert.fail("Illegal expression did not throw an Exception");
         }
         catch (ArithmeticException e)

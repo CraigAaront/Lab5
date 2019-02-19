@@ -44,7 +44,7 @@ public class Calculator
         	result = -1 * a;
         }
         else {
-        	throw new CalculatorException("Illegal command");
+        	throw new CalculatorException("Illegal Command");
         }
         return result;
     }
@@ -139,7 +139,7 @@ public class Calculator
         		return Integer.MIN_VALUE;
         	}
         	else {
-        		throw new CalculatorException("Illegal command");
+        		throw new CalculatorException("Illegal Command");
         	}
         case 2:
         	return calculateTwoTokens(tokens);
